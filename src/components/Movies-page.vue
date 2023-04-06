@@ -7,13 +7,13 @@
     <div v-for="(movie, index) in movies" :key="movie.id">
       <div class="card mb-2" v-bind:style="[chosen[index] ? {'border': '3px double purple'} : {}]">
           <div class="row">
-            <span class="col-6 text-right">
+            <span class="col-6">
               <h4 class="mr-2" @click="choiceToggle(index)" v-bind:style="[chosen[index] ? {'color': 'purple'} : {}]">{{changeName(movie.name)}}</h4>
             </span>
-            <span class="col-2" v-bind:style="[chosen[index] ? {'color': 'purple'} : {}]">
+            <span class="col-4 col-md-2" v-bind:style="[chosen[index] ? {'color': 'purple'} : {}]">
               <i class="fa fa-clock-o mt-2 ml-3 mr-3"></i>{{movie.duration}}s
             </span>
-            <span class="col-4 mt-1">
+            <span class="col-2 col-md-4 mt-1">
               <i class="fa fa-arrow-down" v-if="!chosen[index]" @click="choiceToggle(index)"></i>
               <i class="fa fa-arrow-up" v-if="chosen[index]" @click="choiceToggle(index)"></i>
             </span>
@@ -149,6 +149,19 @@ video {
 
 h4:hover {
   cursor: pointer;
+}
+
+h4 {
+  text-align: right !important;
+}
+
+@media screen and (max-width: 1000px) {
+
+  h4 {
+    font-size: 18px !important;
+    margin-top: 5px !important;
+    text-align: center !important;
+  }
 }
 
 </style>
